@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% load embed_video_tags %}
+
+{% load static %}
+
+{% block title %} | {% endblock title %}
+
+
+<div class="row">
+    <div class="col-10 mx-auto mt-5 text-center">
+        {% block content %}
+          <h1 class="mb-5">Videos</h1>
+          {%  for product in pile %}
+
+          <div class="px-3 mb-5" style="border-radius: 10px;"> 
+            {% video product.url 'small' %}
+             
+            <div class="d-flex justify-content-start">
+                {{ product.title }}
+            </div>    
+
+          </div>
+
+
+          {% endfor %}
+
+        {% endblock content %}
+    </div>
+</div>
+
